@@ -41,7 +41,8 @@ app.delete('/tasks/:id', (req, res) => {
   res.json({ message: 'Task deleted' });
 });
 
+
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Student Task Manager running at http://localhost:${PORT}`);
 });
