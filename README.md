@@ -589,3 +589,7 @@ Don't do everything at once — work through these phases in order:
 5. **Phase 5** — Configure the Freestyle Project.
 6. **Phase 6** — Run the automated build.
 7. **Phase 7** — Demonstrate FAILURE and SUCCESS.
+
+## Git Workflow Demo
+
+This change demonstrates the Git add, commit, and push workflow.
