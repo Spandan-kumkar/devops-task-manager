@@ -1,8 +1,8 @@
+
 pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
@@ -11,20 +11,30 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Automated Testing') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
     }
+
+    post {
+        success {
+            echo 'CI/CD pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check Console Output.'
+        }
+    }
 }
+
