@@ -1,4 +1,4 @@
-// Testing automatic Jenkins trigger
+// Demo: testing automatic Jenkins build after git push
 
 pipeline {
     agent any
