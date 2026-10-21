@@ -1,10 +1,7 @@
+// Demo: testing automatic Jenkins build after git push
 
 pipeline {
     agent any
-
-    environment {
-        PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-    }
 
     stages {
         stage('Checkout') {
@@ -15,27 +12,26 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'node --version && npm --version'
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Automated Testing') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'CI/CD pipeline completed successfully!'
         }
         failure {
             echo 'Pipeline failed. Check Console Output.'
